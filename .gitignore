@@ -1,0 +1,7 @@
+# Downloaded dependencies, builds, and Python environment
+.deps/
+
+# SITL state, logs, and machine-specific setup records
+.runs/
+__pycache__/
+*.pyc

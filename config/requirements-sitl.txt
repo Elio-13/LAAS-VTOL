@@ -1,0 +1,11 @@
+# Ubuntu supplies graphical libraries to the venv through --system-site-packages.
+# The ArduPilot 4.6 build tools require the Empy 3 API.
+empy==3.3.4
+future
+lxml
+pymavlink
+MAVProxy
+pyserial
+pexpect
+dronecan
+geocoder
