@@ -5,3 +5,10 @@
 .runs/
 __pycache__/
 *.pyc
+
+# Generated custom Gazebo plugin binaries
+plugins/motor_watchdog/build/
+
+# Local aircraft-model backups
+models/laas_quadplane/model_before_watchdog.sdf
+models/laas_quadplane/model_visual_backup.sdf
