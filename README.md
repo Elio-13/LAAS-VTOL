@@ -1,5 +1,29 @@
 # LAAS VTOL
 
+## Custom QuadPlane simulation — November 2026
+
+The `jean-development` branch includes our first custom LAAS
+QuadPlane vertical-flight simulation.
+
+**Working:** ArduPlane SITL integration, four lift motors,
+roll/pitch/yaw dynamics tests, QSTABILIZE flight, and QHOVER
+automatic altitude hold.
+
+**Partially working:** QLOITER horizontal position hold.
+Sustained oscillations remain unresolved.
+
+**Not implemented:** Fixed-wing flight, pusher propulsion,
+aerodynamic control surfaces, VTOL transition, and
+autonomous mission validation.
+
+Documentation:
+- [QuadPlane setup and operation](docs/quadplane.md)
+- [Development status and limitations](docs/quadplane-status.md)
+
+The original Iris / ArduCopter setup remains documented below.
+
+---
+
 Team simulation workspace for the Lebanese Aerospace and Automotive Society VTOL project.
 
 **Current milestone:** fly the upstream Iris quadcopter using **ArduCopter SITL + Gazebo Harmonic + the official ArduPilot Gazebo plugin**. Take off to 5 m, hover, and land. This provides the baseline for adding our custom VTOL with ArduPlane / QuadPlane later.
