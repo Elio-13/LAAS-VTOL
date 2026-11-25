@@ -215,7 +215,7 @@
       <maxRotVelocity>800</maxRotVelocity>
       <motorConstant>0.00015</motorConstant>
       <momentConstant>0.016</momentConstant>
-      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <commandSubTopic>gazebo/safe/motor_speed</commandSubTopic>
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
@@ -232,7 +232,7 @@
       <maxRotVelocity>800</maxRotVelocity>
       <motorConstant>0.00015</motorConstant>
       <momentConstant>0.016</momentConstant>
-      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <commandSubTopic>gazebo/safe/motor_speed</commandSubTopic>
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
@@ -249,7 +249,7 @@
       <maxRotVelocity>800</maxRotVelocity>
       <motorConstant>0.00015</motorConstant>
       <momentConstant>0.016</momentConstant>
-      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <commandSubTopic>gazebo/safe/motor_speed</commandSubTopic>
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
@@ -266,7 +266,7 @@
       <maxRotVelocity>800</maxRotVelocity>
       <motorConstant>0.00015</motorConstant>
       <momentConstant>0.016</momentConstant>
-      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <commandSubTopic>gazebo/safe/motor_speed</commandSubTopic>
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
@@ -324,5 +324,8 @@
         <servo_max>2000</servo_max>
       </control>
     </plugin>
+  
+    <plugin filename="liblaas_motor_watchdog.so"
+            name="laas::MotorWatchdog"/>
   </model>
 </sdf>
