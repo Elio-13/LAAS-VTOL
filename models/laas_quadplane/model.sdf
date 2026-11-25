@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <model name="laas_quadplane">
+    <static>false</static>
+    <link name="fuselage">
+      <inertial>
+        <mass>14.8</mass>
+        <inertia>
+          <ixx>3.0</ixx>
+          <iyy>2.0</iyy>
+          <izz>4.0</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.8 0.18 0.20</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="body_visual">
+        <geometry>
+          <box>
+            <size>1.8 0.18 0.20</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.75 0.75 0.80 1</diffuse>
+        </material>
+      </visual>
+      <visual name="wing_visual">
+        <pose>0.10 0 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.30 3.30 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.15 0.35 0.85 1</diffuse>
+        </material>
+      </visual>
+      <visual name="vtail_left">
+        <pose>-0.75 0.25 0.12 0.65 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.30 0.55 0.025</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name="vtail_right">
+        <pose>-0.75 -0.25 0.12 -0.65 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.30 0.55 0.025</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name="pusher">
+        <pose>-0.95 0 0 0 1.5708 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.03</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <collision name="wing_visual_collision">
+        <pose>0.10 0 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.30 3.30 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0 0 0 180 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>250</update_rate>
+        <imu>
+          <orientation_reference_frame>
+            <localization>ENU</localization>
+          </orientation_reference_frame>
+        </imu>
+      </sensor>
+    </link>
+    <link name="rotor_fl">
+      <pose>0.45 0.75 0.15 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.0002</ixx>
+          <iyy>0.0002</iyy>
+          <izz>0.00036</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="rotor_fl_joint" type="revolute">
+      <parent>fuselage</parent>
+      <child>rotor_fl</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="rotor_fr">
+      <pose>0.45 -0.75 0.15 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.0002</ixx>
+          <iyy>0.0002</iyy>
+          <izz>0.00036</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="rotor_fr_joint" type="revolute">
+      <parent>fuselage</parent>
+      <child>rotor_fr</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="rotor_rl">
+      <pose>-0.45 0.75 0.15 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.0002</ixx>
+          <iyy>0.0002</iyy>
+          <izz>0.00036</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="rotor_rl_joint" type="revolute">
+      <parent>fuselage</parent>
+      <child>rotor_rl</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="rotor_rr">
+      <pose>-0.45 -0.75 0.15 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.0002</ixx>
+          <iyy>0.0002</iyy>
+          <izz>0.00036</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="rotor_rr_joint" type="revolute">
+      <parent>fuselage</parent>
+      <child>rotor_rr</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>/model/laas_quadplane/joint_state</topic>
+    </plugin>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>laas_quadplane</robotNamespace>
+      <jointName>rotor_fl_joint</jointName>
+      <linkName>rotor_fl</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.05</timeConstantUp>
+      <timeConstantDown>0.10</timeConstantDown>
+      <maxRotVelocity>800</maxRotVelocity>
+      <motorConstant>0.00015</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+      <actuator_number>2</actuator_number>
+    </plugin>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>laas_quadplane</robotNamespace>
+      <jointName>rotor_fr_joint</jointName>
+      <linkName>rotor_fr</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.05</timeConstantUp>
+      <timeConstantDown>0.10</timeConstantDown>
+      <maxRotVelocity>800</maxRotVelocity>
+      <motorConstant>0.00015</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+      <actuator_number>0</actuator_number>
+    </plugin>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>laas_quadplane</robotNamespace>
+      <jointName>rotor_rl_joint</jointName>
+      <linkName>rotor_rl</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.05</timeConstantUp>
+      <timeConstantDown>0.10</timeConstantDown>
+      <maxRotVelocity>800</maxRotVelocity>
+      <motorConstant>0.00015</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+      <actuator_number>1</actuator_number>
+    </plugin>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>laas_quadplane</robotNamespace>
+      <jointName>rotor_rr_joint</jointName>
+      <linkName>rotor_rr</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.05</timeConstantUp>
+      <timeConstantDown>0.10</timeConstantDown>
+      <maxRotVelocity>800</maxRotVelocity>
+      <motorConstant>0.00015</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+      <actuator_number>3</actuator_number>
+    </plugin>
+    <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+      <no_time_sync>1</no_time_sync>
+      <have_32_channels>0</have_32_channels>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
+      <imuName>imu_sensor</imuName>
+      <control channel="4">
+        <jointName>rotor_fr_joint</jointName>
+        <type>COMMAND</type>
+        <useForce>0</useForce>
+        <cmd_topic>/laas_quadplane/sitl/motor_1</cmd_topic>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+      </control>
+      <control channel="5">
+        <jointName>rotor_rl_joint</jointName>
+        <type>COMMAND</type>
+        <useForce>0</useForce>
+        <cmd_topic>/laas_quadplane/sitl/motor_2</cmd_topic>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+      </control>
+      <control channel="6">
+        <jointName>rotor_fl_joint</jointName>
+        <type>COMMAND</type>
+        <useForce>0</useForce>
+        <cmd_topic>/laas_quadplane/sitl/motor_3</cmd_topic>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+      </control>
+      <control channel="7">
+        <jointName>rotor_rr_joint</jointName>
+        <type>COMMAND</type>
+        <useForce>0</useForce>
+        <cmd_topic>/laas_quadplane/sitl/motor_4</cmd_topic>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+      </control>
+    </plugin>
+  </model>
+</sdf>
